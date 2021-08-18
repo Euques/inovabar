@@ -32,7 +32,7 @@
 						<hr id="divider02">
 						<p id="text06">Oi, vou comemorar meu aniversário no</p>
 						<h1 id="festa">Inova Bar</h1>
-						<h1 id="data">Sábado, dia 21/AGO 13H</h1>
+						<h1 id="data">Sábado, 21/AGO 13H</h1>
 						<p id="text12"><span>Você é meu convidado Especial</span><br /><span><strong>Coloque seu nome na minha lista</strong></span></p>
 						<form enctype="multipart/form-data" id="pegaNome" method="post" action="#">
 							<div class="inner">
@@ -127,9 +127,9 @@
 		function pegaObg() {
 		
 		var meta = document.createElement('meta');
-		meta.setAttribute('property', 'og:url');
+		meta.setAttribute('property', 'og:image');
 		meta.content = 'https://bday.inovabar.com.br/' + url +'/assets/images/share.jpg';
-		document.getElementsByTagName('head')[0].appendChild(meta);
+		document.querySelector('meta:nth-child(9)').appendChild(meta);
 		
 		};
 		window.onload = pegaObg();
