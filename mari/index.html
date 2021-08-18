@@ -96,8 +96,10 @@
 							
 							var pularLinha = "\n"
 							
-							window.open(
-							'https://api.whatsapp.com/send?phone=5511'+ numero +'&text= ' + nomecliente + ' 👈 Olá, coloca esse nome na lista de aniversariante ' + aniversariante + ' da festa ' + festa + ', que vai rolar ' + data +' obrigado.', '_blank');
+							let a= document.createElement('a');
+							a.target= '_blank';
+							a.href= 'https://api.whatsapp.com/send?phone=5511'+ numero +'&text= ' + nomecliente + ' 👈 Olá, coloca esse nome na lista de aniversariante ' + aniversariante + ' da festa ' + festa + ', que vai rolar ' + data +' obrigado.';
+							a.click();
 							
 							}
 							
