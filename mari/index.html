@@ -124,12 +124,13 @@
 		<script src="assets/main.js"></script>
 		<script>
 		
+		//cria uma tag meta no head
 		function pegaObg() {
 		
 		var meta = document.createElement('meta');
 		meta.setAttribute('property', 'og:image');
 		meta.content = 'https://bday.inovabar.com.br/' + url +'/assets/images/share.jpg';
-		document.querySelector('meta:nth-child(9)').appendChild(meta);
+		document.getElementsByTagName('head')[0].appendChild(meta);
 		
 		};
 		window.onload = pegaObg();
