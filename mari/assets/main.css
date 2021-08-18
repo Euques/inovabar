@@ -75,7 +75,7 @@ body:before {
 	background-image: linear-gradient(0deg, rgba(0,0,0,0.722) 71%, #000000 100%), url('images/bg.jpg');
 	background-position: 0% 0%, center;
 	background-repeat: repeat, no-repeat;
-	background-size: cover, 100rem;
+	background-size: cover, cover;
 	background-color: #000000;
 }
 
@@ -1497,7 +1497,7 @@ form .actions button:disabled {
 
 #convida .button {
 	color: #5EB1FF;
-	border: solid 1px #739ED1;
+	border: solid 1px rgba(115,158,209,0.361);
 }
 
 #convida .button:hover {
@@ -1807,7 +1807,7 @@ form .actions button:disabled {
 	}
 	
 	#image01 img {
-		width: 13rem;
+		width: 15rem;
 	}
 	
 	#image03:not(:first-child) {

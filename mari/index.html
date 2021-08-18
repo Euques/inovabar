@@ -106,6 +106,8 @@
 							a.href= 'https://api.whatsapp.com/send?phone=5511'+ numero +'&text= ' + nomecliente + ' 👈 Olá, coloca esse nome na lista de aniversariante ' + aniversariante + ' da festa ' + festa + ', que vai rolar ' + data +' obrigado.';
 							a.click();
 							
+							document.getElementById('pegaNome-nome').value='';
+							
 							}
 							
 							function convida() {
@@ -120,5 +122,17 @@
 			</div>
 		</div>
 		<script src="assets/main.js"></script>
+		<script>
+		
+		function pegaObg() {
+		
+		var meta = document.createElement('meta');
+		meta.setAttribute('property', 'og:url');
+		meta.content = 'https://bday.inovabar.com.br/' + url +'/assets/images/share.jpg';
+		document.getElementsByTagName('head')[0].appendChild(meta);
+		
+		};
+		window.onload = pegaObg();
+		</script>
 	</body>
 </html>
