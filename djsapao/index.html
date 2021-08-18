@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<title>B-Day Dj Sap&atilde;o</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<meta name="description" content="S&aacute;bado, 20/AGO, 17H" />
+		<meta property="og:site_name" content="B-Day Dj Sap&atilde;o" />
+		<meta property="og:title" content="B-Day Dj Sap&atilde;o" />
+		<meta property="og:type" content="website" />
+		<meta property="og:description" content="S&aacute;bado, 20/AGO, 17H" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="theme-color" content="#000000" />
+		<meta name="author" content="Euques Wabes" />
+		<link href="https://fonts.googleapis.com/css?family=Inter:100,100italic,400,400italic,200,200italic,500,500italic,300,300italic,700,700italic,600,600italic,900,900italic%7COswald:200,200italic,400,400italic%7CSource+Sans+Pro:300,300italic,400,400italic" rel="stylesheet" type="text/css" />
+		<link rel="icon" type="image/png" href="assets/images/favicon.png" />
+		<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+		<link rel="stylesheet" href="assets/main.css" />
+		<noscript><link rel="stylesheet" href="assets/noscript.css" /></noscript>
+	</head>
+	<body class="is-loading">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<section id="home-section">
+						<h1 id="text09">B- DAY</h1>
+						<div id="image01" class="image">
+							<img src="assets/images/image01.jpg" alt="" />
+						</div>
+						<h1 id="nome">Dj Sapão</h1>
+						<hr id="divider02">
+						<p id="text06">Oi, vou comemorar meu aniversário no</p>
+						<h1 id="festa">Inova Bar</h1>
+						<h1 id="data">Sexta, 20/AGO 17H</h1>
+						<p id="text12"><span>Você é meu convidado Especial</span><br /><span><strong>Coloque seu nome na minha lista</strong></span></p>
+						<form enctype="multipart/form-data" id="pegaNome" method="post" action="#">
+							<div class="inner">
+								<div class="field">
+									<input type="text" name="nome" id="pegaNome-nome" placeholder="Seu nome Completo" maxlength="256" required />
+								</div>
+								<div class="actions">
+									<button type="submit"><svg><use xlink:href="assets/icons.svg#whatsapp"></use></svg><span class="label">Enviar nome pra lista</span></button>
+								</div>
+							</div>
+						</form>
+						
+						<ul id="buttons04" class="buttons">
+							<li>
+								<a href="#" class="button n01"><svg><use xlink:href="assets/icons.svg#whatsapp"></use></svg><span class="label">Enviar nome para lista</span></a>
+							</li>
+						</ul>
+						<p id="text02">#vem comigo</p>
+						<ul id="buttons01" class="buttons">
+							<li>
+								<a href="https://inovabar.com.br" class="button n01"><svg><use xlink:href="assets/icons.svg#plus"></use></svg><span class="label">Informações da festa</span></a>
+							</li>
+						</ul>
+						<hr id="divider04" class="style1">
+						<p id="text04">Chama o pessoal no whats</p>
+						<ul id="convida" class="buttons">
+							<li>
+								<a href="#" class="button n01"><svg><use xlink:href="assets/icons.svg#whatsapp"></use></svg><span class="label">Convidar os amigos</span></a>
+							</li>
+						</ul>
+						<hr id="divider01" class="style1">
+						<div id="image03" class="image">
+							<a href="https://niver.inovabar.com.br"><img src="assets/images/image03.png" alt="" /></a>
+						</div>
+						<p id="text05">Comemore seu aniversário conosco</p>
+						<ul id="buttons03" class="buttons">
+							<li>
+								<a href="https://niver.inovabar.com.br" class="button n01"><svg><use xlink:href="assets/icons.svg#plane"></use></svg><span class="label">veja as vantagens</span></a>
+							</li>
+						</ul>
+						<p id="text13">© 2021 - www.inovabar.com.br - todos os direitos reservados</p>
+					</section>
+					<section id="script-section">
+						<hr id="divider05" class="style1">
+						<p id="text03">NUMERO QUE VAI RECEBER OS NOMES DA LISTA (SEM DD)</p>
+						<h1 id="numero">949726856</h1>
+						<p id="text08">LINK DO SITE: HTTPS://BDAY.INOVABAR.COM.BR/</p>
+						<h1 id="url">djsapao</h1>
+						<hr id="divider03" class="style1">
+						<div id="embed01">
+							<script>
+							
+							var aniversariante = window.document.getElementById('nome').innerHTML
+							
+							var festa = window.document.getElementById('festa').innerHTML
+							
+							var data = window.document.getElementById('data').innerHTML.toLowerCase()
+							
+							var numero = window.document.getElementById('numero').innerHTML
+							
+							var url = window.document.getElementById('url').innerHTML
+							
+							function envia() {
+							
+							var nomecliente= window.document.getElementById('pegaNome-nome').value.toUpperCase()
+							
+							var pularLinha = "\n"
+							
+							let a= document.createElement('a');
+							a.target= '_blank';
+							a.href= 'https://api.whatsapp.com/send?phone=5511'+ numero +'&text= ' + nomecliente + ' 👈 Olá, coloca esse nome na lista de aniversariante ' + aniversariante + ' da festa ' + festa + ', que vai rolar ' + data +' obrigado.';
+							a.click();
+							
+							document.getElementById('pegaNome-nome').value='';
+							
+							}
+							
+							function convida() {
+							
+							location.href = 'https://api.whatsapp.com/send?text=B-DAY ' + aniversariante + ' e vamos comemorar na ' + festa +', que vai rolar ' + data +', coloque o nome na lista pelo site: https://bday.inovabar.com.br/' + url + ' ', '_blank'
+							
+							}
+							</script>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+		<script src="assets/main.js"></script>
+		<script>
+		
+		//cria uma tag meta no head
+		function pegaObg() {
+		
+		var meta = document.createElement('meta');
+		meta.setAttribute('property', 'og:image');
+		meta.content = 'https://bday.inovabar.com.br/' + url +'/assets/images/share.jpg';
+		document.getElementsByTagName('head')[0].appendChild(meta);
+		
+		};
+		window.onload = pegaObg();
+		</script>
+	</body>
+</html>
