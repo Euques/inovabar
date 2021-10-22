@@ -2,7 +2,7 @@
     "name": "Inova",
     "short_name" : "Inova",
     "start_url": "index.html?utm_source=homescreen",
-    "scope" : "./myapp",
+    "scope" : "./",
     "icons": [
         {
             "src": "./android-chrome-192x192.png",
