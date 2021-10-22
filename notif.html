@@ -1,0 +1,80 @@
+<!DOCTYPE html>	
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#000000">
+<title>Notificações</title>
+  <style>
+
+	 body {
+		 font-family: sans-serif;
+		 background: #000;
+		 margin: 0;
+		 color: #fff;
+	}
+
+.container {
+width: 100vw;
+height: 100vh;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+transform: translateY(-10%);
+}
+	  
+.box {
+width: 300px;
+height: 300px;
+text-align: center;
+}
+
+.button {
+  background-color: #fff;
+  border: none;
+  color: #000;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+	border-radius: 50px;
+}
+
+.button:hover {opacity: 1}
+	  
+  </style>
+  
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "97b15e00-4d0a-465a-83ad-4c74bcc503d2",
+    });
+  });
+</script>
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="box">
+			<p style="font-size:100px; margin-block-start: 0px;
+margin-block-end: 0px; "> 🔔 </p> <br>
+	<h2> Notificações </h2> 
+			<br>
+      <div class='onesignal-customlink-container' style="color: #fff;"></div> <br>
+			<p> Clique para receber notificações (Somente para Android) </p>
+			<a href="./index.html"><button class="button"> Voltar </button></a>
+		</div>
+	</div>
+
+</body>
+</html>
