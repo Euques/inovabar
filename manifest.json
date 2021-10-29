@@ -17,6 +17,6 @@
     ],
     "theme_color": "#000000",
     "background_color": "#000000",
-    "display": "fullscreen",
+    "display": "standalone",
 	"gcm_sender_id": ""
 }
