@@ -2,14 +2,16 @@ importScripts('https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/7.14.2/firebase-messaging.js');
 
 var firebaseConfig = {
-  apiKey: "AIzaSyDHVzeqpAodDw0yf2LozMB0DFKchE0BhkA",
-authDomain: "pwapush-617d0.firebaseapp.com",
-databaseURL: "https://pwapush-617d0.firebaseio.com",
-projectId: "pwapush-617d0",
-storageBucket: "pwapush-617d0.appspot.com",
-messagingSenderId: "247472682409",
-appId: "1:247472682409:web:3ea716511dd79ba4b400b8"
+apiKey: "AIzaSyCNSzDh0tC80lhoFewOCCWFgF4ec2tCqQQ",
+authDomain: "inovabarapp.firebaseapp.com",
+databaseURL: "https://inovabarapp-default-rtdb.firebaseio.com",
+projectId: "inovabarapp",
+storageBucket: "inovabarapp.appspot.com",
+messagingSenderId: "341811259005",
+appId: "1:341811259005:web:55cbc721257b0b2ff63314"
   };
+
+
   
   firebase.initializeApp(firebaseConfig);
   
