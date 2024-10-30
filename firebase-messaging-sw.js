@@ -1,6 +1,6 @@
 // Importa o script do Firebase para permitir o uso de Cloud Messaging
-importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js');
+importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js');
 
 
  const firebaseConfig = {
