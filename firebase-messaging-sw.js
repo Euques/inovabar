@@ -1,27 +1,23 @@
-// Importa o script do Firebase para permitir o uso de Cloud Messaging
+// Importa as bibliotecas do Firebase
 importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js');
 
-
- const firebaseConfig = {
+// Inicializa o Firebase
+firebase.initializeApp({
     apiKey: "AIzaSyCNSzDh0tC80lhoFewOCCWFgF4ec2tCqQQ",
     authDomain: "inovabarapp.firebaseapp.com",
     databaseURL: "https://inovabarapp-default-rtdb.firebaseio.com",
     projectId: "inovabarapp",
     storageBucket: "inovabarapp.appspot.com",
     messagingSenderId: "341811259005",
-    appId: "1:341811259005:web:55cbc721257b0b2ff63314",
-    measurementId: "G-5TMBF8RH57"
-  };
-
-// Inicializa o Firebase
-firebase.initializeApp(firebaseConfig);
+    appId: "1:341811259005:web:55cbc721257b0b2ff63314"
+});
 
 // Cria uma instância do Firebase Messaging
 const messaging = firebase.messaging();
 
 // Manipula mensagens em segundo plano
-messaging.onBackgroundMessage((payload) => {
+messaging.setBackgroundMessageHandler((payload) => {
     console.log('Received background message: ', payload);
     const notificationTitle = payload.notification.title;
     const notificationOptions = {
@@ -30,6 +26,5 @@ messaging.onBackgroundMessage((payload) => {
     };
 
     // Exibe a notificação
-    self.registration.showNotification(notificationTitle, notificationOptions);
+    return self.registration.showNotification(notificationTitle, notificationOptions);
 });
-
