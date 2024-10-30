@@ -76,6 +76,14 @@
             return messaging.getToken();
         }).then((token) => {
             console.log('Token recebido:', token);
+            // Enviar o token para o servidor para registro
+            fetch('https://seu-servidor.com/register-token', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token })
+            });
         }).catch((error) => {
             console.error('Erro ao obter permissão para notificações:', error);
         });
