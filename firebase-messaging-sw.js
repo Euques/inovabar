@@ -22,7 +22,7 @@ messaging.setBackgroundMessageHandler((payload) => {
     const notificationTitle = payload.notification.title;
     const notificationOptions = {
         body: payload.notification.body,
-        icon: '/path/to/icon.png' // Altere para o caminho do seu ícone
+        icon: '/mstile-70x70.png' // Altere para o caminho do seu ícone
     };
 
     // Exibe a notificação
