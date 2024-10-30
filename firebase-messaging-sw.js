@@ -1,7 +1,9 @@
-importScripts('https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/7.14.2/firebase-messaging.js');
+// Importa o script do Firebase para permitir o uso de Cloud Messaging
+importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js');
 
-var firebaseConfig = {
+// Suas configurações do Firebase
+const firebaseConfig = {
 apiKey: "AIzaSyCNSzDh0tC80lhoFewOCCWFgF4ec2tCqQQ",
 authDomain: "inovabarapp.firebaseapp.com",
 databaseURL: "https://inovabarapp-default-rtdb.firebaseio.com",
@@ -11,30 +13,22 @@ messagingSenderId: "341811259005",
 appId: "1:341811259005:web:55cbc721257b0b2ff63314"
   };
 
+// Inicializa o Firebase
+firebase.initializeApp(firebaseConfig);
 
-  
-  firebase.initializeApp(firebaseConfig);
-  
-  const messaging = firebase.messaging();
-  
-messaging.setBackgroundMessageHandler(function(payload) {  
- var  title = payload.data.title;
- var options = {
-        body: payload.data.body,
-        icon: payload.data.icon,
-        image: payload.data.image,
-     data:{
-        time: new Date(Date.now()).toString(),
-        click_action: payload.data.click_action
-        }    
-  };
- return self.registration.showNotification(title, options);
+// Cria uma instância do Firebase Messaging
+const messaging = firebase.messaging();
+
+// Manipula mensagens em segundo plano
+messaging.onBackgroundMessage((payload) => {
+    console.log('Received background message: ', payload);
+    const notificationTitle = payload.notification.title;
+    const notificationOptions = {
+        body: payload.notification.body,
+        icon: '/path/to/icon.png' // Altere para o caminho do seu ícone
+    };
+
+    // Exibe a notificação
+    self.registration.showNotification(notificationTitle, notificationOptions);
 });
 
-self.addEventListener('notificationclick', function(event) {
-  var action_click = event.notification.data.click_action;
-  event.notification.close();
-  event.waitUntil(
-    clients.openWindow(action_click)
-  );
-});
