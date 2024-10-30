@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envio de Notificações</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Cor de fundo escura */
+            color: #ffffff; /* Texto branco */
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #1e1e1e; /* Fundo escuro para campos */
+            color: #ffffff; /* Texto claro nos campos */
+        }
+        button {
+            background-color: #6200ea; /* Cor do botão */
+            color: #ffffff; /* Texto do botão */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #3700b3; /* Efeito de hover no botão */
+        }
+        @media (max-width: 600px) {
+            input[type="text"],
+            textarea {
+                font-size: 14px; /* Tamanho de fonte reduzido em telas pequenas */
+            }
+            button {
+                font-size: 14px; /* Tamanho do botão reduzido em telas pequenas */
+            }
+        }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+    <script>
+        // Suas configurações do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCNSzDh0tC80lhoFewOCCWFgF4ec2tCqQQ",
+            authDomain: "inovabarapp.firebaseapp.com",
+            databaseURL: "https://inovabarapp-default-rtdb.firebaseio.com",
+            projectId: "inovabarapp",
+            storageBucket: "inovabarapp.appspot.com",
+            messagingSenderId: "341811259005",
+            appId: "1:341811259005:web:55cbc721257b0b2ff63314"
+        };
+
+        // Inicializa o Firebase
+        firebase.initializeApp(firebaseConfig);
+        const messaging = firebase.messaging();
+
+        // Solicitar permissão para enviar notificações
+        messaging.requestPermission().then(() => {
+            console.log('Permissão para notificações concedida.');
+            return messaging.getToken();
+        }).then((token) => {
+            console.log('Token recebido:', token);
+        }).catch((error) => {
+            console.error('Erro ao obter permissão para notificações:', error);
+        });
+
+        function sendNotification() {
+            const title = document.getElementById('title').value;
+            const body = document.getElementById('body').value;
+            const imageUrl = document.getElementById('imageUrl').value; // Obtém a URL da imagem
+
+            fetch('https://seu-servidor.com/send-notification', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ title, body, imageUrl }) // Envia a URL da imagem no corpo
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Notificação enviada:', data);
+                alert('Notificação enviada com sucesso!');
+            })
+            .catch(error => {
+                console.error('Erro ao enviar notificação:', error);
+                alert('Erro ao enviar notificação.');
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Enviar Notificações</h1>
+    <label for="title">Título:</label>
+    <input type="text" id="title" required>
+
+    <label for="body">Corpo:</label>
+    <textarea id="body" required></textarea>
+
+    <label for="imageUrl">URL da Imagem:</label>
+    <input type="text" id="imageUrl" required>
+
+    <button onclick="sendNotification()">Enviar Notificação</button>
+</body>
+</html>
