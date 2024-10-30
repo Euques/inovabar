@@ -84,6 +84,9 @@
 <!-- Google Otmize --->
 <script src="https://www.googleoptimize.com/optimize.js?id=GTM-PXTHH44"></script>
 
+	 <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js"></script>
+
 </head>
 
 <body background="#000000">
@@ -188,10 +191,6 @@ document.getElementById('fbpopup').style.display='block';
 
 
 
-// Importa as bibliotecas do Firebase
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
-import { getMessaging, requestPermission, getToken } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js';
-
 // Suas configurações do Firebase
 const firebaseConfig = {
 apiKey: "AIzaSyCNSzDh0tC80lhoFewOCCWFgF4ec2tCqQQ",
@@ -204,14 +203,16 @@ appId: "1:341811259005:web:55cbc721257b0b2ff63314"
   };
 
 // Inicializa o Firebase
-const app = initializeApp(firebaseConfig);
-const messaging = getMessaging(app);
+firebase.initializeApp(firebaseConfig);
+
+// Obtém uma instância do Firebase Messaging
+const messaging = firebase.messaging();
 
 // Solicitar permissão para enviar notificações
-requestPermission()
+messaging.requestPermission()
     .then(() => {
         console.log('Notification permission granted.');
-        return getToken(messaging);
+        return messaging.getToken();
     })
     .then((token) => {
         console.log('Token received:', token);
@@ -220,6 +221,18 @@ requestPermission()
     .catch((error) => {
         console.error('Unable to get permission to notify:', error);
     });
+
+// Registrar o Service Worker
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/firebase-messaging-sw.js')
+        .then((registration) => {
+            console.log('Service Worker registered:', registration);
+        })
+        .catch((error) => {
+            console.error('Service Worker registration failed:', error);
+        });
+}
+
 
 // Registrar o Service Worker
 if ('serviceWorker' in navigator) {
