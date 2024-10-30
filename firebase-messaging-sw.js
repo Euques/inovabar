@@ -22,8 +22,8 @@ messaging.setBackgroundMessageHandler((payload) => {
     const notificationTitle = payload.notification.title;
     const notificationOptions = {
         body: payload.notification.body,
-        icon: 'https://inovabar.com.br/mstile-70x70.png', // Altere para o caminho do seu ícone
-        badge: 'https://inovabar.com.br/mstile-70x70.png' // Opcional: Altere para o caminho do ícone de badge
+        icon: 'https://inovabar.com.br/android-chrome-192x192.png', // Altere para o caminho do seu ícone
+        badge: 'https://inovabar.com.br/badge48x48.png' // Opcional: Altere para o caminho do ícone de badge
    
     };
 
