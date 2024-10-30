@@ -189,47 +189,54 @@ document.getElementById('fbpopup').style.display='block';
 
 
 
-// Suas configurações do Firebase
- const firebaseConfig = {
-    apiKey: "AIzaSyCNSzDh0tC80lhoFewOCCWFgF4ec2tCqQQ",
-    authDomain: "inovabarapp.firebaseapp.com",
-    databaseURL: "https://inovabarapp-default-rtdb.firebaseio.com",
-    projectId: "inovabarapp",
-    storageBucket: "inovabarapp.appspot.com",
-    messagingSenderId: "341811259005",
-    appId: "1:341811259005:web:55cbc721257b0b2ff63314",
-    measurementId: "G-5TMBF8RH57"
-  };
-
-// Inicializa o Firebase
-firebase.initializeApp(firebaseConfig);
-
-// Registrar o Service Worker
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/firebase-messaging-sw.js')
-        .then((registration) => {
-            console.log('Service Worker registered:', registration);
-            // Inicializa o Firebase Messaging após o Service Worker ser registrado
-            const messaging = firebase.messaging();
-            // Solicitar permissão para enviar notificações
-            return messaging.requestPermission();
-        })
-        .then(() => {
-            console.log('Notification permission granted.');
-            return messaging.getToken();
-        })
-        .then((token) => {
-            console.log('Token received:', token);
-            // Envie o token para o seu servidor se necessário
-        })
-        .catch((error) => {
-            console.error('Service Worker registration failed or unable to get permission to notify:', error);
-        });
-}
-
-
 	
 </script>
+
+	<script type="module">
+    // Suas configurações do Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyCNSzDh0tC80lhoFewOCCWFgF4ec2tCqQQ",
+        authDomain: "inovabarapp.firebaseapp.com",
+        databaseURL: "https://inovabarapp-default-rtdb.firebaseio.com",
+        projectId: "inovabarapp",
+        storageBucket: "inovabarapp.appspot.com",
+        messagingSenderId: "341811259005",
+        appId: "1:341811259005:web:55cbc721257b0b2ff63314"
+    };
+
+    // Importando módulos do Firebase
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
+    import { getMessaging, onBackgroundMessage } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js';
+
+    // Inicializa o Firebase
+    const app = initializeApp(firebaseConfig);
+    const messaging = getMessaging(app);
+
+    // Solicitar permissão para enviar notificações
+    Notification.requestPermission().then((permission) => {
+        if (permission === 'granted') {
+            console.log('Notification permission granted.');
+            return messaging.getToken();
+        } else {
+            console.error('Unable to get permission to notify.');
+        }
+    }).then((token) => {
+        console.log('Token received:', token);
+        // Envie o token para o seu servidor se necessário
+    });
+
+    // Registrar o Service Worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/firebase-messaging-sw.js')
+            .then((registration) => {
+                console.log('Service Worker registered:', registration);
+            })
+            .catch((error) => {
+                console.error('Service Worker registration failed:', error);
+            });
+    }
+</script>
+
 
 <!-- Script Ends -->	
 	
