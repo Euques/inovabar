@@ -2,15 +2,16 @@
 importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js');
 
-// Suas configurações do Firebase
-const firebaseConfig = {
-apiKey: "AIzaSyCNSzDh0tC80lhoFewOCCWFgF4ec2tCqQQ",
-authDomain: "inovabarapp.firebaseapp.com",
-databaseURL: "https://inovabarapp-default-rtdb.firebaseio.com",
-projectId: "inovabarapp",
-storageBucket: "inovabarapp.appspot.com",
-messagingSenderId: "341811259005",
-appId: "1:341811259005:web:55cbc721257b0b2ff63314"
+
+ const firebaseConfig = {
+    apiKey: "AIzaSyCNSzDh0tC80lhoFewOCCWFgF4ec2tCqQQ",
+    authDomain: "inovabarapp.firebaseapp.com",
+    databaseURL: "https://inovabarapp-default-rtdb.firebaseio.com",
+    projectId: "inovabarapp",
+    storageBucket: "inovabarapp.appspot.com",
+    messagingSenderId: "341811259005",
+    appId: "1:341811259005:web:55cbc721257b0b2ff63314",
+    measurementId: "G-5TMBF8RH57"
   };
 
 // Inicializa o Firebase
